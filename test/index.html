@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link rel="stylesheet" href="styles.css">
+<title>TRIDENT HUB</title>
+
+</head>
+<body>
+<div class="sidebar">
+<div class="sidebar-menu">
+<h1>TRIDENT HUB</h1>
+<div class="sidebar-item-with-submenu">
+<div class="sidebar-item" onclick="showTab('sales')">Sales Management</div>
+</div>
+<div class="sidebar-item-with-submenu">
+<div class="sidebar-item">Project Management</div>
+<div class="submenu">
+<div class="sub-tab" onclick="showTab('installation')">New Installation</div>
+<div class="sub-tab" onclick="showTab('modernization')">Modernization</div>
+</div>
+</div>
+<div class="sidebar-item-with-submenu">
+<div class="sidebar-item">Engineering Centre</div>
+<div class="submenu">
+<div class="sub-tab" onclick="showTab('designcentre')">Design Centre</div>
+<div class="sub-tab" onclick="showTab('testingncomm')">Testing &amp; Commissioning</div>
+</div>
+</div>
+<div class="sidebar-item-with-submenu">
+<div class="sidebar-item">Service Operation</div>
+<div class="submenu">
+<div class="sub-tab" onclick="showTab('contracts')">Contracts</div>
+<div class="sub-tab" onclick="showTab('clients')">Clients</div>
+<div class="sub-tab" onclick="showTab('sites')">Site Management</div>
+<div class="sub-tab" onclick="showTab('equipments')">Equipments</div>
+<div class="sub-tab" onclick="showTab('pricing')">Pricing Calculator</div>
+<div class="sub-tab" onclick="showTab('maintenance')">Maintenance</div>
+<div class="sub-tab" onclick="showTab('service')">Service</div>
+<div class="sub-tab" onclick="showTab('mnc')">Real-Time Monitoring &amp; Callback</div>
+<div class="sub-tab" onclick="showTab('repair')">Repair Management</div>
+<div class="sub-tab" onclick="showTab('parts')">Parts Management</div>
+</div>
+</div>
+<div class="sidebar-item-with-submenu">
+<div class="sidebar-item">Compliance &amp; Quality</div>
+<div class="submenu">
+<div class="sub-tab" onclick="showTab('newinspec')">New Insatllation Inspection</div>
+<div class="sub-tab" onclick="showTab('renewinspec')">Renewal Inspection</div>
+<div class="sub-tab" onclick="showTab('quaterinspec')">Quaterly Inspection</div>
+<div class="sub-tab" onclick="showTab('safetyaudit')">Safety Audit</div>
+<div class="sub-tab" onclick="showTab('quataudit')">Quality Audit</div>
+</div>
+</div>
+<div class="sidebar-item-with-submenu">
+<div class="sidebar-item">Resource Management</div>
+<div class="submenu">
+<div class="sub-tab" onclick="showTab('hr')">Human Resource</div>
+<div class="sub-tab" onclick="showTab('tm')">Tools Management</div>
+<div class="sub-tab" onclick="showTab('subcont')">Sub-Contractor Management</div>
+<div class="sub-tab" onclick="showTab('ts')">Troubleshooting Support</div>
+</div>
+</div>
+</div>
+<div class="sidebar-footer">
+        Logged in as: <span id="user-id">USER123</span>
+</div>
+</div>
+
+<div class="main">
+<div class="tab hidden" id="installation-tab">
+<div class="card">
+<h2 class="form-header" onclick="toggleForm('installation-form', this)"><span>Add New Installation Project</span><span class="arrow-icon">▼</span></h2>
+<div class="hidden" id="installation-form"><h4>Customer Details</h4>
+<div class="input-group"><label></label><input id="installation-contractno" placeholder="Contract No." type="text"/></div>
+<div class="input-group"><label></label><input id="installation-date" placeholder="Award Date" type="text"/></div>
+<div class="input-group">
+<label></label>
+<select id="installation-type">
+<option value="">Select Contract Type</option>
+<option>Direct Contract (DC)</option>
+<option>Nominated Sub-Contract (NSC)</option>
+<option>Domestic Sub-Contract (DSC)</option>
+<option>Others</option>
+</select>
+</div>
+<div class="input-group">
+<label></label>
+<select id="installation-client">
+<option value="">Select Client Type</option>
+<option>Owner / Developer</option>
+<option>Main-Contractor</option>
+<option>Architect</option>
+<option>M&amp;E Consultant</option>
+<option>C&amp;S Consultant</option>
+<option>Quantity Surveyer</option>
+<option>Others</option>
+</select>
+</div>
+<h4>Customer Details</h4>
+<div class="input-group"><label></label><input id="installation-company" placeholder="Company Name" type="text"/></div>
+<div class="input-group"><label></label><input id="installation-address" placeholder="Address" type="text"/></div>
+<div class="input-group"><label></label><input id="installation-postcode" placeholder="Postcode" type="text"/></div>
+<div class="input-group"><label></label><input id="installation-phonenumber" placeholder="Phone Number" type="text"/></div>
+<div class="input-group"><label></label><input id="installation-email" placeholder="Email" type="email"/></div>
+<h4>PIC (Person-In-Charge)</h4>
+<div class="input-group"><label></label><input id="installation-picname" placeholder="Name" type="text"/></div>
+<div class="input-group"><label></label><input id="installation-picphonenumber" placeholder="Phone Number" type="text"/></div>
+<div class="input-group"><label></label><input id="installation-picemail" placeholder="Email" type="email"/></div>
+<h4>Scope of Work (Scope of Preliminaries)</h4>
+<h5>Performance Bond</h5>
+<div class="input-group">
+<label class="checkbox-group">
+<input id="installation-bond-bank" name="installation-bond" type="radio" value="Bank Guarantee"/>
+<span class="checkbox-custom"></span>
+            Bank Guarantee
+          </label>
+<label class="checkbox-group">
+<input id="installation-bond-director" name="installation-bond" type="radio" value="Director Guarantee"/>
+<span class="checkbox-custom"></span>
+            Director Guarantee
+          </label>
+</div>
+<div class="input-group"><label></label><input id="installation-se" placeholder="Start/End" type="text"/></div>
+<div class="input-group"><label></label><input id="installation-value" placeholder="Value" type="text"/></div>
+<h5>Insurances Type</h5>
+<div class="input-group">
+<label class="checkbox-group">
+<input id="installation-car" name="installation-instype" type="radio" value="CAR"/>
+<span class="checkbox-custom"></span>
+            Contractor All Risks (CAR)
+          </label>
+<label class="checkbox-group">
+<input id="installation-ear" name="installation-instype" type="radio" value="EAR"/>
+<span class="checkbox-custom"></span>
+            Erection All Risks (EAR)
+          </label>
+<label class="checkbox-group">
+<input id="installation-public" name="installation-instype" type="radio" value="Public Liability"/>
+<span class="checkbox-custom"></span>
+            Public Liability
+          </label>
+<label class="checkbox-group">
+<input id="installation-workman" name="installation-instype" type="radio" value="Workman Compensation"/>
+<span class="checkbox-custom"></span>
+            Workman Compensation
+          </label>
+</div>
+<h5>Insurances Provider</h5>
+<div class="input-group auto_style_0" id="installation-provider-group">
+<label class="checkbox-group">
+<input id="installation-main" name="installation-provider" type="radio" value="Main Contractor"/>
+<span class="checkbox-custom"></span>
+           Provided by Main Contractor
+          </label>
+<label class="checkbox-group">
+<input id="installation-trident" name="installation-provider" type="radio" value="Trident"/>
+<span class="checkbox-custom"></span>
+            Provided by Trident
+          </label>
+</div>
+<h5>Liquidated Ascertained Damages</h5>
+<div class="input-group"><input id="installation-lad-amount" placeholder="Amount" type="text"/></div>
+<div class="input-group"><input id="installation-lad-limit" placeholder="Limit" type="text"/></div>
+<h5>Defects Liability Period</h5>
+<div class="input-group"><input id="installation-dlp-duration" placeholder="Duration" type="text"/></div>
+<div class="input-group"><input id="installation-dlp-other" placeholder="Others" type="text"/></div>
+<h5>Equipment Summary</h5>
+<div class="input-group"><input id="installation-equipsummary" placeholder="Summary" type="text"/></div>
+<div class="input-group"><input id="installation-equipothers" placeholder="Others" type="text"/></div>
+<h5>Proposed Work Schedule</h5>
+<div class="input-group"><input id="installation-commencementdate" placeholder="Commencement Date" type="text"/></div>
+<div class="input-group"><input id="installation-completiondate" placeholder="Completion Date" type="text"/></div>
+<h5>Contract Sum</h5>
+<div class="input-group"><input id="installation-pricesummary" placeholder="Price Summary" type="text"/></div>
+<h5>Payment Terms</h5>
+<div class="input-group"><input id="installation-downpayment" placeholder="Downpayment" type="text"/></div>
+<div class="input-group"><input id="installation-retention" placeholder="Retention" type="text"/></div>
+<div class="input-group"><input id="installation-vo" placeholder="Variation Orders" type="text"/></div>
+<button onclick="saveInstallation()">Save New Installation Project</button>
+</div>
+</div>
+<div class="card">
+<h3>New Installation List</h3>
+<input id="search-installation" oninput="filterTable('installation-list', this.value)" placeholder="Search installation..." type="text"/>
+<div class="table-wrapper">
+<table class="data-table" id="installation-list">
+<thead>
+<tr>
+<th>Contract No.</th>
+<th>Award Date</th>
+<th>Customer Type</th>
+<th>Client Type</th>
+<th>Company Name</th>
+<th>Address</th>
+<th>Postcode</th>
+<th>Phone Number</th>
+<th>Email</th>
+<th>PIC Name</th>
+<th>PIC Phone Number</th>
+<th>PIC Email</th>
+<th>Performance Bond</th>
+<th>Insurance Type</th>
+<th>Provided By</th>
+<th>LAD Amount</th>
+<th>LAD Limit</th>
+<th>DLP Duration</th>
+<th>DLP Others</th>
+<th>Equip Summary</th>
+<th>Equip Others</th>
+<th>Commencement Date</th>
+<th>Completion Date</th>
+<th>Price Summary</th>
+<th>Downpayment</th>
+<th>Retention</th>
+<th>Variation Orders</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="tab hidden" id="modernization-tab">
+<div class="card">
+<h2 class="form-header" onclick="toggleForm('modernization-form', this)"><span>Add New Modernization Project</span><span class="arrow-icon">▼</span></h2>
+<div class="hidden" id="modernization-form"><h4>Customer Details</h4>
+<div class="input-group"><label></label><input id="modernization-contractno" placeholder="Contract No." type="text"/></div>
+<div class="input-group"><label></label><input id="modernization-date" placeholder="Award Date" type="text"/></div>
+<div class="input-group">
+<label></label>
+<select id="modernization-type">
+<option value="">Select Contract Type</option>
+<option>Direct Contract (DC)</option>
+<option>Nominated Sub-Contract (NSC)</option>
+<option>Domestic Sub-Contract (DSC)</option>
+<option>Others</option>
+</select>
+</div>
+<div class="input-group">
+<label></label>
+<select id="modernization-client">
+<option value="">Select Client Type</option>
+<option>Owner / Developer</option>
+<option>Main-Contractor</option>
+<option>Architect</option>
+<option>M&amp;E Consultant</option>
+<option>C&amp;S Consultant</option>
+<option>Quantity Surveyer</option>
+<option>Others</option>
+</select>
+</div>
+<h4>Customer Details</h4>
+<div class="input-group"><label></label><input id="modernization-company" placeholder="Company Name" type="text"/></div>
+<div class="input-group"><label></label><input id="modernization-address" placeholder="Address" type="text"/></div>
+<div class="input-group"><label></label><input id="modernization-postcode" placeholder="Postcode" type="text"/></div>
+<div class="input-group"><label></label><input id="modernization-phonenumber" placeholder="Phone Number" type="text"/></div>
+<div class="input-group"><label></label><input id="modernization-email" placeholder="Email" type="email"/></div>
+<h4>PIC (Person-In-Charge)</h4>
+<div class="input-group"><label></label><input id="modernization-picname" placeholder="Name" type="text"/></div>
+<div class="input-group"><label></label><input id="modernization-picphonenumber" placeholder="Phone Number" type="text"/></div>
+<div class="input-group"><label></label><input id="modernization-picemail" placeholder="Email" type="email"/></div>
+<h4>Scope of Work (Scope of Preliminaries)</h4>
+<h5>Performance Bond</h5>
+<div class="input-group">
+<label class="checkbox-group">
+<input id="modernization-bond-bank" name="modernization-bond" type="radio" value="Bank Guarantee"/>
+<span class="checkbox-custom"></span>
+            Bank Guarantee
+          </label>
+<label class="checkbox-group">
+<input id="modernization-bond-director" name="modernization-bond" type="radio" value="Director Guarantee"/>
+<span class="checkbox-custom"></span>
+            Director Guarantee
+          </label>
+</div>
+<div class="input-group"><label></label><input id="modernization-se" placeholder="Start/End" type="text"/></div>
+<div class="input-group"><label></label><input id="modernization-value" placeholder="Value" type="text"/></div>
+<h5>Insurances Type</h5>
+<div class="input-group">
+<label class="checkbox-group">
+<input id="modernization-car" name="modernization-instype" type="radio" value="CAR"/>
+<span class="checkbox-custom"></span>
+            Contractor All Risks (CAR)
+          </label>
+<label class="checkbox-group">
+<input id="modernization-ear" name="modernization-instype" type="radio" value="EAR"/>
+<span class="checkbox-custom"></span>
+            Erection All Risks (EAR)
+          </label>
+<label class="checkbox-group">
+<input id="modernization-public" name="modernization-instype" type="radio" value="Public Liability"/>
+<span class="checkbox-custom"></span>
+            Public Liability
+          </label>
+<label class="checkbox-group">
+<input id="modernization-workman" name="modernization-instype" type="radio" value="Workman Compensation"/>
+<span class="checkbox-custom"></span>
+            Workman Compensation
+          </label>
+</div>
+<h5>Insurances Provider</h5>
+<div class="input-group auto_style_0" id="modernization-provider-group">
+<label class="checkbox-group">
+<input id="modernization-main" name="modernization-provider" type="radio" value="Main Contractor"/>
+<span class="checkbox-custom"></span>
+           Provided by Main Contractor
+          </label>
+<label class="checkbox-group">
+<input id="modernization-trident" name="modernization-provider" type="radio" value="Trident"/>
+<span class="checkbox-custom"></span>
+            Provided by Trident
+          </label>
+</div>
+<h5>Liquidated Ascertained Damages</h5>
+<div class="input-group"><input id="modernization-lad-amount" placeholder="Amount" type="text"/></div>
+<div class="input-group"><input id="modernization-lad-limit" placeholder="Limit" type="text"/></div>
+<h5>Defects Liability Period</h5>
+<div class="input-group"><input id="modernization-dlp-duration" placeholder="Duration" type="text"/></div>
+<div class="input-group"><input id="modernization-dlp-other" placeholder="Others" type="text"/></div>
+<h5>Equipment Summary</h5>
+<div class="input-group"><input id="modernization-equipsummary" placeholder="Summary" type="text"/></div>
+<div class="input-group"><input id="modernization-equipothers" placeholder="Others" type="text"/></div>
+<h5>Proposed Work Schedule</h5>
+<div class="input-group"><input id="modernization-commencementdate" placeholder="Commencement Date" type="text"/></div>
+<div class="input-group"><input id="modernization-completiondate" placeholder="Completion Date" type="text"/></div>
+<h5>Contract Sum</h5>
+<div class="input-group"><input id="modernization-pricesummary" placeholder="Price Summary" type="text"/></div>
+<h5>Payment Terms</h5>
+<div class="input-group"><input id="modernization-downpayment" placeholder="Downpayment" type="text"/></div>
+<div class="input-group"><input id="modernization-retention" placeholder="Retention" type="text"/></div>
+<div class="input-group"><input id="modernization-vo" placeholder="Variation Orders" type="text"/></div>
+<button onclick="saveModernization()">Save New Modernization Project</button>
+</div>
+</div>
+<div class="card">
+<h3>Modernization List</h3>
+<input id="search-modernization" oninput="filterTable('modernization-list', this.value)" placeholder="Search modernization..." type="text"/>
+<div class="table-wrapper">
+<table class="data-table" id="modernization-list">
+<thead>
+<tr>
+<th>Contract No.</th>
+<th>Award Date</th>
+<th>Customer Type</th>
+<th>Client Type</th>
+<th>Company Name</th>
+<th>Address</th>
+<th>Postcode</th>
+<th>Phone Number</th>
+<th>Email</th>
+<th>PIC Name</th>
+<th>PIC Phone Number</th>
+<th>PIC Email</th>
+<th>Performance Bond</th>
+<th>Insurance Type</th>
+<th>Provided By</th>
+<th>LAD Amount</th>
+<th>LAD Limit</th>
+<th>DLP Duration</th>
+<th>DLP Others</th>
+<th>Equip Summary</th>
+<th>Equip Others</th>
+<th>Commencement Date</th>
+<th>Completion Date</th>
+<th>Price Summary</th>
+<th>Downpayment</th>
+<th>Retention</th>
+<th>Variation Orders</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="tab hidden" id="contracts-tab">
+<div class="card">
+<h2 class="form-header" onclick="toggleForm('contracts-form', this)"><span>Add Contract</span><span class="arrow-icon">▼</span></h2>
+<div class="hidden" id="contracts-form">
+<div class="input-group"><input id="contracts-no" placeholder="Contract No."/></div>
+<div class="input-group"><input id="contracts-date" placeholder="Commencement Date"/></div>
+<div class="input-group"><input id="contracts-expiry" placeholder="Expiry Date"/></div>
+<div class="input-group">
+<label for="contracts-type"></label>
+<select id="contracts-type" required="">
+<option disabled="" selected="" value="">Select Type</option>
+<option value="Comprehensive">Comprehensive</option>
+<option value="SemiComprehensive">Semi-Comprehensive</option>
+<option value="General">General</option>
+<option value="Defects">Defects Liability Period</option>
+</select>
+</div>
+<div class="input-group"><input id="contracts-included" placeholder="Included"/></div>
+<div class="input-group"><input id="contracts-excluded" placeholder="Excluded"/></div>
+<div class="input-group"><input id="contracts-price" placeholder="Price"/></div>
+<button onclick="saveContract()">Save Contract</button>
+</div>
+</div>
+<div class="card">
+<h3>Contract List</h3>
+<input id="search-contracts" oninput="filterTable('contracts-list', this.value)" placeholder="Search contracts..." type="text"/>
+<div class="table-wrapper">
+<table class="data-table" id="contracts-list">
+<thead>
+<tr>
+<th>Contract No.</th><th>Commencement Date</th><th>Expiry Date</th><th>Type of Contract</th><th>Included</th><th>Excluded</th><th>Pricing</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="tab hidden" id="clients-tab">
+<div class="card">
+<h2 class="form-header" onclick="toggleForm('clients-form', this)"><span>Add Client</span><span class="arrow-icon">▼</span></h2>
+<div class="hidden" id="clients-form">
+<div class="input-group">
+<label></label>
+<input id="clients-name" placeholder="Enter customer name" type="text"/>
+</div>
+<div class="input-group">
+<label></label>
+<select id="clients-type">
+<option value="">Select Customer Role</option>
+<option>Owner</option>
+<option>Tenant</option>
+<option>Building Manager</option>
+<option>Others</option>
+</select>
+</div>
+<div class="input-group"><label></label><input id="clients-address" placeholder="Address" type="text"/></div>
+<div class="input-group"><label></label><input id="clients-postcode" placeholder="Postcode" type="text"/></div>
+<div class="input-group"><label></label><input id="clients-phonenumber" placeholder="Phone Number" type="text"/></div>
+<div class="input-group"><label></label><input id="clients-email" placeholder="Email" type="email"/></div>
+<h4>PIC (Person-In-Charge)</h4>
+<div class="input-group"><label></label><input id="clients-pic-name" placeholder="Name" type="text"/></div>
+<div class="input-group"><label></label><input id="clients-pic-phonenumber" placeholder="Phone Number" type="text"/></div>
+<div class="input-group"><label></label><input id="clients-pic-email" placeholder="Email" type="email"/></div>
+<h3>Billing Address</h3>
+<div class="input-group">
+<label class="checkbox-group">
+<input id="clients-billing-same" onchange="toggleClientsBillingAddress()" type="checkbox"/>
+<span class="checkbox-custom"></span>
+            Same as Contracted Customer Address
+          </label>
+</div>
+<div id="clients-billing-fields">
+<div class="input-group"><label>Address</label><input type="text"/></div>
+<div class="input-group"><label>Postcode</label><input type="text"/></div>
+<div class="input-group"><label>Tel.</label><input type="text"/></div>
+<div class="input-group"><label>Email</label><input type="email"/></div>
+</div>
+<h3>Owner</h3>
+<div class="input-group">
+<label class="checkbox-group">
+<input id="clients-owner-same" onchange="toggleClientsOwnerAddress()" type="checkbox"/>
+<span class="checkbox-custom"></span>
+            Same as Contracted Customer Address
+          </label>
+</div>
+<div id="clients-owner-fields">
+<div class="input-group"><label>Address</label><input type="text"/></div>
+<div class="input-group"><label>Postcode</label><input type="text"/></div>
+<div class="input-group"><label>Tel.</label><input type="text"/></div>
+<div class="input-group"><label>Email</label><input type="email"/></div>
+</div>
+<button onclick="saveClient()">Save Client Info</button>
+</div>
+</div>
+<div class="card">
+<h3>Client List</h3>
+<input id="search-clients" oninput="filterTable('clients-list', this.value)" placeholder="Search client..." type="text"/>
+<div class="table-wrapper">
+<table class="data-table" id="clients-list">
+<thead>
+<tr>
+<th>Customer Name</th>
+<th>Customer Type</th>
+<th>Address</th>
+<th>Postcode</th>
+<th>Phone Number</th>
+<th>Email</th>
+<th>PIC Name</th>
+<th>PIC Phone Number</th>
+<th>PIC Email</th>
+<th>Billing Address</th>
+<th>Billing Postcode</th>
+<th>Billing Tel.</th>
+<th>Billing Email</th>
+<th>Owner Address</th>
+<th>Owner Postcode</th>
+<th>Owner Tel.</th>
+<th>Owner Email</th>
+<th>Pricing</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="tab hidden" id="sites-tab">
+<div class="card">
+<h2 class="form-header" onclick="toggleForm('sites-form', this)"><span>Add Site</span><span class="arrow-icon">▼</span></h2>
+<div class="hidden" id="sites-form">
+<div class="input-group"><input id="site-name" placeholder="Site Name"/></div>
+<div class="input-group">
+<label for="site-type"></label>
+<select id="site-type" required="">
+<option disabled="" selected="" value="">Select Type</option>
+<option value="New Installation">New Installation</option>
+<option value="Modernization">Modernization</option>
+</select>
+</div>
+<div class="input-group"><input id="site-address" placeholder="Site Address"/></div>
+<div class="input-group"><input id="site-latitude" placeholder="Latitude"/></div>
+<div class="input-group"><input id="site-longtitude" placeholder="Longtitude"/></div>
+<button onclick="saveSites()">Save Site</button>
+</div>
+</div>
+<div class="card">
+<h3>Sites List</h3>
+<input id="search-sites" oninput="filterTable('sites-list', this.value)" placeholder="Search sites..." type="text"/>
+<div class="table-wrapper">
+<table class="data-table" id="sites-list">
+<thead>
+<tr>
+<th>Site Name</th><th>Site Type</th><th>Site Address</th><th>Latitude</th><th>Longtitude</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="tab hidden" id="pricing-tab">
+<div class="card">
+<h2>Pricing Calculator</h2>
+<table class="data-table" id="pricing-table">
+<thead>
+<tr>
+<th>Unit No.</th><th>PMA No.</th><th>Price/month (RM)</th><th>Include SST (8%)</th><th>Total with Tax (RM)</th>
+<th></th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<button onclick="savePricingRow()">Add Unit</button>
+<br/><br/>
+</div>
+</div>
+<div class="tab hidden" id="equipments-tab">
+<div class="card">
+<h2 class="form-header" onclick="toggleForm('equipments-form', this)"><span>Add Equipment</span><span class="arrow-icon">▼</span></h2>
+<div class="hidden" id="equipments-form">
+<div class="input-group"><input id="equip-liftnumber" placeholder="Lift Numbering as at Site"/></div>
+<div class="input-group"><input id="equip-owner-name" placeholder="Owner Name"/></div>
+<div class="input-group"><input id="equip-owner-workplacenumber" placeholder="Workplace Number"/></div>
+<div class="input-group"><input id="equip-owner-correspondencesadd" placeholder="Correspondence Address"/></div>
+<div class="input-group"><input id="equip-resident-name" placeholder="Resident Name"/></div>
+<div class="input-group"><input id="equip-resident-workplacenumber" placeholder="Workplace Number"/></div>
+<div class="input-group"><input id="equip-resident-correspondencesadd" placeholder="Correspondence Address"/></div>
+<div class="input-group"><input id="equip-lastinspec" placeholder="Last Inspection Date"/></div>
+<div class="input-group"><input id="equip-resnumber" placeholder="Resgistration Number (PMA No.)"/></div>
+<div class="input-group"><input id="equip-expired" placeholder="Expiry Date"/></div>
+<div class="input-group"><input id="equip-location" placeholder="Location"/></div>
+<div class="input-group"><input id="equip-serialnumber" placeholder="Serial No."/></div>
+<div class="input-group"><input id="equip-manufacture" placeholder="Manufacturer"/></div>
+<div class="input-group"><input id="equip-rate" placeholder="Monthly Rate"/></div>
+<div class="input-group">
+<label>Equipment Type:</label>
+<select id="equip-type" onchange="toggleEquipmentFields(this.value)">
+<option value="">Select Type</option>
+<option value="Elevator">Elevator</option>
+<option value="Escalator">Escalator</option>
+<option value="Travolator">Travolator</option>
+<option value="Dumbwaiter">Dumbwaiter</option>
+<option value="PlatformLift">Platform Lift</option>
+<option value="GoodsHoist">Goods Hoist</option>
+<option value="Stairlift">Stairlift</option>
+<option value="HomeLift">Home Lift</option>
+</select>
+</div>
+<div class="equipments-details hidden" id="Elevator-fields">
+<div class="input-group"><label>Brand:</label><input id="equip-brand" type="text"/></div>
+<div class="input-group"><label>Model Name:</label><input id="equip-modelname" type="text"/></div>
+<div class="input-group"><label>Capacity (kg):</label><input id="equip-capacitykg" type="text"/></div>
+<div class="input-group"><label>Capacity (persons):</label><input id="equip-capacityper" type="text"/></div>
+<div class="input-group"><label>Speed (m/m):</label><input id="equip-speed" type="text"/></div>
+<div class="input-group"><label>Rise (m):</label><input id="equip-rise" type="text"/></div>
+<div class="input-group"><label>Stops / Openings:</label><input id="equip-so" type="text"/></div>
+<div class="input-group"><label>Machine Type:</label><input id="equip-machinetype" type="text"/></div>
+<div class="input-group"><label>Motor Data:</label><input id="equip-motordata" type="text"/></div>
+<div class="input-group"><label>Controller:</label><input id="equip-controller" type="text"/></div>
+<div class="input-group"><label>Software Version:</label><input id="equip-softver" type="text"/></div>
+<div class="input-group"><label>Operation:</label><input id="equip-operation" type="text"/></div>
+<div class="input-group"><label>Roping:</label><input id="equip-roping" type="text"/></div>
+<div class="input-group"><label>Rope Diameter:</label><input id="equip-ropediameter" type="text"/></div>
+<div class="input-group"><label>Rope Construction / Made:</label><input id="equip-ropeconstruction" type="text"/></div>
+</div>
+<div class="equipments-details hidden" id="Escalator-fields">
+<div class="input-group"><label>Brand:</label><input id="equip-brand" type="text"/></div>
+<div class="input-group"><label>Model Name:</label><input id="equip-modelname" type="text"/></div>
+<div class="input-group"><label>Capacity (kg):</label><input id="equip-capacitykg" type="text"/></div>
+<div class="input-group"><label>Rise (m):</label><input id="equip-rise" type="text"/></div>
+<div class="input-group"><label>Stepwidth (mm):</label><input id="equip-stepwidth" type="text"/></div>
+<div class="input-group"><label>Inclination:</label><input id="equip-inclination" type="text"/></div>
+<div class="input-group"><label>Machine Type:</label><input id="equip-machinetype" type="text"/></div>
+<div class="input-group"><label>Motor Data:</label><input id="equip-motordata" type="text"/></div>
+<div class="input-group"><label>Controller:</label><input id="equip-controller" type="text"/></div>
+<div class="input-group"><label>Software Version:</label><input id="equip-softver" type="text"/></div>
+<div class="input-group"><label>Operation:</label><input id="equip-operation" type="text"/></div>
+<div class="input-group"><label>Rope Diameter:</label><input id="equip-ropediameter" type="text"/></div>
+<div class="input-group"><label>Rope Construction / Made:</label><input id="equip-ropeconstruction" type="text"/></div>
+</div>
+<div class="equipments-details hidden" id="Travolator-fields">
+<div class="input-group"><label>Brand:</label><input id="equip-brand" type="text"/></div>
+<div class="input-group"><label>Model Name:</label><input id="equip-modelname" type="text"/></div>
+<div class="input-group"><label>Capacity (kg):</label><input id="equip-capacitykg" type="text"/></div>
+<div class="input-group"><label>Rise (m):</label><input id="equip-rise" type="text"/></div>
+<div class="input-group"><label>Stepwidth (mm):</label><input id="equip-stepwidth" type="text"/></div>
+<div class="input-group"><label>Inclination:</label><input id="equip-inclination" type="text"/></div>
+<div class="input-group"><label>Machine Type:</label><input id="equip-machinetype" type="text"/></div>
+<div class="input-group"><label>Motor Data:</label><input id="equip-motordata" type="text"/></div>
+<div class="input-group"><label>Controller:</label><input id="equip-controller" type="text"/></div>
+<div class="input-group"><label>Software Version:</label><input id="equip-softver" type="text"/></div>
+<div class="input-group"><label>Operation:</label><input id="equip-operation" type="text"/></div>
+<div class="input-group"><label>Rope Diameter:</label><input id="equip-ropediameter" type="text"/></div>
+<div class="input-group"><label>Rope Construction / Made:</label><input id="equip-ropeconstruction" type="text"/></div>
+</div>
+<div class="equipments-details hidden" id="Dumbwaiter-fields">
+<div class="input-group"><label>Brand:</label><input id="equip-brand" type="text"/></div>
+<div class="input-group"><label>Model Name:</label><input id="equip-modelname" type="text"/></div>
+<div class="input-group"><label>Capacity (kg):</label><input id="equip-capacitykg" type="text"/></div>
+<div class="input-group"><label>Speed (m/m):</label><input id="equip-speed" type="text"/></div>
+<div class="input-group"><label>Rise (m):</label><input id="equip-rise" type="text"/></div>
+<div class="input-group"><label>Stops / Openings:</label><input id="equip-so" type="text"/></div>
+<div class="input-group"><label>Machine Type:</label><input id="equip-machinetype" type="text"/></div>
+<div class="input-group"><label>Motor Data:</label><input id="equip-motordata" type="text"/></div>
+<div class="input-group"><label>Controller:</label><input id="equip-controller" type="text"/></div>
+<div class="input-group"><label>Software Version:</label><input id="equip-softver" type="text"/></div>
+<div class="input-group"><label>Operation:</label><input id="equip-operation" type="text"/></div>
+<div class="input-group"><label>Roping:</label><input id="equip-roping" type="text"/></div>
+<div class="input-group"><label>Rope Diameter:</label><input id="equip-ropediameter" type="text"/></div>
+<div class="input-group"><label>Rope Construction / Made:</label><input id="equip-ropeconstruction" type="text"/></div>
+</div>
+<div class="equipments-details hidden" id="PlatformLift-fields">
+<div class="input-group"><label>Brand:</label><input id="equip-brand" type="text"/></div>
+<div class="input-group"><label>Model Name:</label><input id="equip-modelname" type="text"/></div>
+<div class="input-group"><label>Capacity (kg):</label><input id="equip-capacitykg" type="text"/></div>
+<div class="input-group"><label>Capacity (persons):</label><input id="equip-capacityper" type="text"/></div>
+<div class="input-group"><label>Speed (m/m):</label><input id="equip-speed" type="text"/></div>
+<div class="input-group"><label>Rise (m):</label><input id="equip-rise" type="text"/></div>
+<div class="input-group"><label>Stops / Openings:</label><input id="equip-so" type="text"/></div>
+<div class="input-group"><label>Machine Type:</label><input id="equip-machinetype" type="text"/></div>
+<div class="input-group"><label>Motor Data:</label><input id="equip-motordata" type="text"/></div>
+<div class="input-group"><label>Controller:</label><input id="equip-controller" type="text"/></div>
+<div class="input-group"><label>Software Version:</label><input id="equip-softver" type="text"/></div>
+<div class="input-group"><label>Operation:</label><input id="equip-operation" type="text"/></div>
+<div class="input-group"><label>Roping:</label><input id="equip-roping" type="text"/></div>
+<div class="input-group"><label>Rope Diameter:</label><input id="equip-ropediameter" type="text"/></div>
+<div class="input-group"><label>Rope Construction / Made:</label><input id="equip-ropeconstruction" type="text"/></div>
+</div>
+<div class="equipments-details hidden" id="GoodsHoist-fields">
+<div class="input-group"><label>Brand:</label><input id="equip-brand" type="text"/></div>
+<div class="input-group"><label>Model Name:</label><input id="equip-modelname" type="text"/></div>
+<div class="input-group"><label>Capacity (kg):</label><input id="equip-capacitykg" type="text"/></div>
+<div class="input-group"><label>Speed (m/m):</label><input id="equip-speed" type="text"/></div>
+<div class="input-group"><label>Rise (m):</label><input id="equip-rise" type="text"/></div>
+<div class="input-group"><label>Stops / Openings:</label><input id="equip-so" type="text"/></div>
+<div class="input-group"><label>Machine Type:</label><input id="equip-machinetype" type="text"/></div>
+<div class="input-group"><label>Motor Data:</label><input id="equip-motordata" type="text"/></div>
+<div class="input-group"><label>Controller:</label><input id="equip-controller" type="text"/></div>
+<div class="input-group"><label>Software Version:</label><input id="equip-softver" type="text"/></div>
+<div class="input-group"><label>Operation:</label><input id="equip-operation" type="text"/></div>
+<div class="input-group"><label>Roping:</label><input id="equip-roping" type="text"/></div>
+<div class="input-group"><label>Rope Diameter:</label><input id="equip-ropediameter" type="text"/></div>
+<div class="input-group"><label>Rope Construction / Made:</label><input id="equip-ropeconstruction" type="text"/></div>
+</div>
+<div class="equipments-details hidden" id="Stairlift-fields">
+<div class="input-group"><label>Brand:</label><input id="equip-brand" type="text"/></div>
+<div class="input-group"><label>Model Name:</label><input id="equip-modelname" type="text"/></div>
+<div class="input-group"><label>Capacity (kg):</label><input id="equip-capacitykg" type="text"/></div>
+<div class="input-group"><label>Capacity (persons):</label><input id="equip-capacityper" type="text"/></div>
+<div class="input-group"><label>Speed (m/m):</label><input id="equip-speed" type="text"/></div>
+<div class="input-group"><label>Rise (m):</label><input id="equip-rise" type="text"/></div>
+<div class="input-group"><label>Machine Type:</label><input id="equip-machinetype" type="text"/></div>
+<div class="input-group"><label>Motor Data:</label><input id="equip-motordata" type="text"/></div>
+<div class="input-group"><label>Controller:</label><input id="equip-controller" type="text"/></div>
+<div class="input-group"><label>Software Version:</label><input id="equip-softver" type="text"/></div>
+<div class="input-group"><label>Operation:</label><input id="equip-operation" type="text"/></div>
+<div class="input-group"><label>Roping:</label><input id="equip-roping" type="text"/></div>
+<div class="input-group"><label>Rope Diameter:</label><input id="equip-ropediameter" type="text"/></div>
+<div class="input-group"><label>Rope Construction / Made:</label><input id="equip-ropeconstruction" type="text"/></div>
+</div>
+<div class="equipments-details hidden" id="HomeLift-fields">
+<div class="input-group"><label>Brand:</label><input id="equip-brand" type="text"/></div>
+<div class="input-group"><label>Model Name:</label><input id="equip-modelname" type="text"/></div>
+<div class="input-group"><label>Capacity (kg):</label><input id="equip-capacitykg" type="text"/></div>
+<div class="input-group"><label>Capacity (persons):</label><input id="equip-capacityper" type="text"/></div>
+<div class="input-group"><label>Speed (m/m):</label><input id="equip-speed" type="text"/></div>
+<div class="input-group"><label>Rise (m):</label><input id="equip-rise" type="text"/></div>
+<div class="input-group"><label>Stops / Openings:</label><input id="equip-so" type="text"/></div>
+<div class="input-group"><label>Machine Type:</label><input id="equip-machinetype" type="text"/></div>
+<div class="input-group"><label>Motor Data:</label><input id="equip-motordata/" type="text"/></div>
+<div class="input-group"><label>Controller:</label><input id="equip-controller" type="text"/></div>
+<div class="input-group"><label>Software Version:</label><input id="equip-softver" type="text"/></div>
+<div class="input-group"><label>Operation:</label><input id="equip-operation" type="text"/></div>
+<div class="input-group"><label>Roping:</label><input id="equip-roping" type="text"/></div>
+<div class="input-group"><label>Rope Diameter:</label><input id="equip-ropediameter" type="text"/></div>
+<div class="input-group"><label>Rope Construction / Made:</label><input id="equip-ropeconstruction" type="text"/></div>
+</div>
+<button onclick="saveEquipments()">Save Equipmennts</button>
+</div>
+</div>
+<div class="card">
+<h3>Equipments List</h3>
+<input id="search-equipments" oninput="filterTable('equipments-list', this.value)" placeholder="Search equipments..." type="text"/>
+<div class="table-wrapper">
+<table class="data-table" id="equipment-list">
+<thead>
+<tr>
+<th>Lift Number</th>
+<th>Registration Number</th>
+<th>Expiry Date</th>
+<th>Serial Number</th>
+<th>Monthly Rate</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="tab hidden" id="maintenance-tab">
+<div class="card">
+<h2 class="form-header" onclick="toggleForm('maintenance-form', this)"><span>Schedule Maintenance</span><span class="arrow-icon">▼</span></h2>
+<div class="hidden" id="maintenance-form">
+<div class="input-group"><input id="maintenance-date" placeholder="Date"/></div>
+<div class="input-group"><input id="maintenance-freq" placeholder="Frequency"/></div>
+<div class="input-group"><input id="maintenance-site" placeholder="Site"/></div>
+<div class="input-group"><input id="maintenance-pma" placeholder="PMA No."/></div>
+<div class="input-group"><input id="maintenance-equipno" placeholder="Equipment No."/></div>
+<div class="input-group"><input id="maintenance-team" placeholder="Maintenance Team"/></div>
+<button onclick="saveMaintenance()">Save Maintenance</button>
+</div>
+</div>
+<div class="card">
+<h3>Maintenance List</h3>
+<input id="search-maintenance" oninput="filterTable('maintenance-list', this.value)" placeholder="Search maintenance..." type="text"/>
+<div class="table-wrapper">
+<table class="data-table" id="maintenance-list">
+<thead>
+<tr>
+<th>Date</th><th>Frequency</th><th>Site</th><th>PMA No.</th><th>Equipment No.</th><th>Maintenance Team</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="tab hidden" id="newinspec-tab">
+<div class="card">
+<h2 class="form-header" onclick="toggleForm('newinspec-form', this)"><span>Add New Installation Inspection</span><span class="arrow-icon">▼</span></h2>
+<div class="hidden" id="newinspec-form">
+<div class="input-group"><input id="newinspec-date" placeholder="Date"/></div>
+<div class="input-group"><input id="newinspec-site" placeholder="Site"/></div>
+<div class="input-group"><input id="newinspec-pma" placeholder="PMA No."/></div>
+<div class="input-group"><input id="newinspec-equipno" placeholder="Equipment No."/></div>
+<div class="input-group"><input id="newinspec-comment" placeholder="Comment"/></div>
+<div class="input-group">
+<label for="newinspec-image"></label>
+<input accept="image/*" id="newinspec-image" multiple="" type="file"/>
+</div>
+<button onclick="saveNewinpec()">Save</button>
+</div>
+</div>
+<div class="card">
+<h3>New Installation Inspection List</h3>
+<input id="search-newinspec" oninput="filterTable('newinspec-list', this.value)" placeholder="Search..." type="text"/>
+<div class="table-wrapper">
+<table class="data-table" id="newinspec-list">
+<thead>
+<tr>
+<th>Date</th><th>Site</th><th>PMA No.</th><th>Equipment No.</th><th>Comment</th><th>image</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="image-modal" id="image-modal" onclick="closeModal()">
+<img alt="Zoomed Image" id="modal-img" src=""/>
+</div>
+<div class="tab hidden" id="renewinspec-tab">
+<div class="card">
+<h2 class="form-header" onclick="toggleForm('renewinspec-form', this)"><span>Add New Installation Inspection</span><span class="arrow-icon">▼</span></h2>
+<div class="hidden" id="renewinspec-form">
+<div class="input-group"><input id="renewinspec-date" placeholder="Date"/></div>
+<div class="input-group"><input id="renewinspec-site" placeholder="Site"/></div>
+<div class="input-group"><input id="renewinspec-pma" placeholder="PMA No."/></div>
+<div class="input-group"><input id="renewinspec-equipno" placeholder="Equipment No."/></div>
+<div class="input-group"><input id="renewinspec-comment" placeholder="Comment"/></div>
+<div class="input-group">
+<label for="renewinspec-image"></label>
+<input accept="image/*" id="renewinspec-image" multiple="" type="file"/>
+</div>
+<button onclick="saveRenewinspec()">Save</button>
+</div>
+</div>
+<div class="card">
+<h3>Renewal Inspection List</h3>
+<input id="search-renewinspec" oninput="filterTable('renewinspec-list', this.value)" placeholder="Search..." type="text"/>
+<div class="table-wrapper">
+<table class="data-table" id="renewinspec-list">
+<thead>
+<tr>
+<th>Date</th><th>Site</th><th>PMA No.</th><th>Equipment No.</th><th>Comment</th><th>image</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="image-modal" id="image-modal" onclick="closeModal()">
+<img alt="Zoomed Image" id="modal-img" src=""/>
+</div>
+<div class="tab hidden" id="quaterinspec-tab">
+<div class="card">
+<h2 class="form-header" onclick="toggleForm('quaterinspec-form', this)"><span>Add New Installation Inspection</span><span class="arrow-icon">▼</span></h2>
+<div class="hidden" id="quaterinspec-form">
+<div class="input-group"><input id="quaterinspec-date" placeholder="Date"/></div>
+<div class="input-group"><input id="quaterinspec-site" placeholder="Site"/></div>
+<div class="input-group"><input id="quaterinspec-pma" placeholder="PMA No."/></div>
+<div class="input-group"><input id="quaterinspec-equipno" placeholder="Equipment No."/></div>
+<div class="input-group"><input id="quaterinspec-comment" placeholder="Comment"/></div>
+<div class="input-group">
+<label for="quaterinspec-image"></label>
+<input accept="image/*" id="quaterinspec-image" multiple="" type="file"/>
+</div>
+<button onclick="saveQuaterinspec()">Save</button>
+</div>
+</div>
+<div class="card">
+<h3>Quaterly Inspection List</h3>
+<input id="search-quaterinspec" oninput="filterTable('quaterinspec-list', this.value)" placeholder="Search..." type="text"/>
+<div class="table-wrapper">
+<table class="data-table" id="quaterinspec-list">
+<thead>
+<tr>
+<th>Date</th><th>Site</th><th>PMA No.</th><th>Equipment No.</th><th>Comment</th><th>image</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="image-modal" id="image-modal" onclick="closeModal()">
+<img alt="Zoomed Image" id="modal-img" src=""/>
+</div>
+<div class="tab hidden" id="safetyaudit-tab">
+<div class="card">
+<h2 class="form-header" onclick="toggleForm('safetyaudit-form', this)"><span>Add New Installation Inspection</span><span class="arrow-icon">▼</span></h2>
+<div class="hidden" id="safetyaudit-form">
+<div class="input-group"><input id="safetyaudit-date" placeholder="Date"/></div>
+<div class="input-group"><input id="safetyaudit-site" placeholder="Site"/></div>
+<div class="input-group"><input id="safetyaudit-pma" placeholder="PMA No."/></div>
+<div class="input-group"><input id="safetyaudit-equipno" placeholder="Equipment No."/></div>
+<div class="input-group"><input id="safetyaudit-comment" placeholder="Comment"/></div>
+<div class="input-group">
+<label for="safetyaudit-image"></label>
+<input accept="image/*" id="safetyaudit-image" multiple="" type="file"/>
+</div>
+<button onclick="saveSafetyaudit()">Save</button>
+</div>
+</div>
+<div class="card">
+<h3>Safety Audit List</h3>
+<input id="search-safetyaudit" oninput="filterTable('safetyaudit-list', this.value)" placeholder="Search..." type="text"/>
+<div class="table-wrapper">
+<table class="data-table" id="safetyaudit-list">
+<thead>
+<tr>
+<th>Date</th><th>Site</th><th>PMA No.</th><th>Equipment No.</th><th>Comment</th><th>image</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="image-modal" id="image-modal" onclick="closeModal()">
+<img alt="Zoomed Image" id="modal-img" src=""/>
+</div>
+<div class="tab hidden" id="quataudit-tab">
+<div class="card">
+<h2 class="form-header" onclick="toggleForm('quataudit-form', this)"><span>Add New Installation Inspection</span><span class="arrow-icon">▼</span></h2>
+<div class="hidden" id="quataudit-form">
+<div class="input-group"><input id="quataudit-date" placeholder="Date"/></div>
+<div class="input-group"><input id="quataudit-site" placeholder="Site"/></div>
+<div class="input-group"><input id="quataudit-pma" placeholder="PMA No."/></div>
+<div class="input-group"><input id="quataudit-equipno" placeholder="Equipment No."/></div>
+<div class="input-group"><input id="quataudit-comment" placeholder="Comment"/></div>
+<div class="input-group">
+<label for="quataudit-image"></label>
+<input accept="image/*" id="newinspec-image" multiple="" type="file"/>
+</div>
+<button onclick="saveQuataudit()">Save</button>
+</div>
+</div>
+<div class="card">
+<h3>Quality List</h3>
+<input id="search-quataudit" oninput="filterTable('quataudit-list', this.value)" placeholder="Search..." type="text"/>
+<div class="table-wrapper">
+<table class="data-table" id="quataudit-list">
+<thead>
+<tr>
+<th>Date</th><th>Site</th><th>PMA No.</th><th>Equipment No.</th><th>Comment</th><th>image</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="image-modal" id="image-modal" onclick="closeModal()">
+<img alt="Zoomed Image" id="modal-img" src=""/>
+</div>
+<div class="tab hidden" id="service-tab">
+<div class="card">
+<h2 class="form-header" onclick="toggleForm('service-form', this)"><span>Add Service </span><span class="arrow-icon">▼</span></h2>
+<div class="hidden" id="service-form">
+<div class="input-group"><input id="service-date" placeholder="Date"/></div>
+<div class="input-group"><input id="service-sonum" placeholder="S.O. Number"/></div>
+<div class="input-group"><input id="service-site" placeholder="Site"/></div>
+<div class="input-group"><input id="service-pma" placeholder="PMA No."/></div>
+<div class="input-group"><input id="service-equipno" placeholder="Equipments No"/></div>
+<div class="input-group"><input id="service-packagetype" placeholder="Package Type"/></div>
+<div class="input-group"><input id="service-type" placeholder="Service Type"/></div>
+<div class="input-group"><input id="service-descrip" placeholder="Description"/></div>
+<div class="input-group"><input id="service-qty" placeholder="Quantity"/></div>
+<div class="input-group"><input id="service-suffix" placeholder="Suffix"/></div>
+<div class="input-group"><input id="service-equipstatus" placeholder="Equipments Status"/></div>
+<button onclick="saveService()">Save Service</button>
+</div>
+</div>
+<div class="card">
+<h3>Service List</h3>
+<input id="search-service" oninput="filterTable('service-list', this.value)" placeholder="Search service..." type="text"/>
+<div class="table-wrapper">
+<table class="data-table" id="service-list">
+<thead>
+<tr>
+<th>Date</th><th>S.O. Number</th><th>Site</th><th>PMA No.</th><th>Equipments No</th><th>Package Type</th><th>Service Type</th><th>Description</th><th>Quantity</th><th>Suffix</th><th>Equipments Status</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="tab hidden" id="mnc-tab">
+<div class="card">
+<h2 class="form-header" onclick="toggleForm('mnc-form', this)"><span>Add Callback </span><span class="arrow-icon">▼</span></h2>
+<div class="hidden" id="mnc-form">
+<div class="input-group"><input id="mnc-time" placeholder="Time Reported"/></div>
+<div class="input-group"><input id="mnc-site" placeholder="Site"/></div>
+<div class="input-group"><input id="mnc-pma" placeholder="PMA No."/></div>
+<div class="input-group"><input id="mnc-equipno" placeholder="Equipment No."/></div>
+<div class="input-group"><input id="mnc-type" placeholder="Callback Type"/></div>
+<div class="input-group"><input id="mnc-equipstatus" placeholder="Equipment Status"/></div>
+<button onclick="saveMNC()">Save Callback</button>
+</div>
+</div>
+<div class="card">
+<h3>Callback List</h3>
+<input id="search-mnc" oninput="filterTable('mnc-list', this.value)" placeholder="Search Callback..." type="text"/>
+<div class="table-wrapper">
+<table class="data-table" id="mnc-list">
+<thead>
+<tr>
+<th>Time Reported</th><th>Site</th><th>PMA No.</th><th>Equipment No.</th><th>Callback Type</th><th>Equipment Status</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="tab hidden" id="repair-tab">
+<div class="card">
+<h2 class="form-header" onclick="toggleForm('repair-form', this)"><span>Repair List</span><span class="arrow-icon">▼</span></h2>
+<div class="hidden" id="repair-form">
+<div class="table-wrapper">
+<table class="data-table" id="repair-list">
+<thead>
+<tr>
+<th>Date</th><th>Site</th><th>PMA</th><th>Equip No</th><th>Remarks</th><th>Photos</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<script src="scripts.js"></script>
+</div></body>
+</html>
